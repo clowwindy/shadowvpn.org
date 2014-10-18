@@ -1,0 +1,23 @@
+Origin: ShadowVPN
+Label: ShadowVPN
+Architectures: amd64
+Components: main
+Suite: wheezy
+Description: ShadowVPN APT Repository
+Date: Sat, 18 Oct 2014 06:53:16 UTC
+MD5Sum:
+ 6bf8023713e640d325c9ef485cb5fe7e              125 Release
+ 3a7ac3d1e71c3ca05f8f4050273b0cfd              516 main/binary-amd64/Packages
+ 7e82bfd52e0ee3f5c76a164d60ccf015              391 main/binary-amd64/Packages.gz
+SHA1:
+ 82cfdb5bf44db0eae9c9bb6249625df1da1df1cc              125 Release
+ 3c947ba53d58bcf7a654c4aef321e69ee6a56334              516 main/binary-amd64/Packages
+ 0263eb7ff328b4ab7c7545b229af50144e15d4ef              391 main/binary-amd64/Packages.gz
+SHA256:
+ 9bb23aa5050ae40160e40df2fc22f43d3bf3be428a882c46cc8c6dd9a46b8dea              125 Release
+ a41cfbb9827f275f1cd3b3bfe13bba7e0bbc4896343d3a96e8b4d4aa26f8779c              516 main/binary-amd64/Packages
+ 90ae3c5b3f8c382bf9a5a4ac69bed28f754bc820d043d888297ccbc76b05f294              391 main/binary-amd64/Packages.gz
+SHA512:
+ d00e2b6fb8ca1223f8572a6f1bd14769f95f824ab8124eae00466edf8287f768c670a9cd79ffca49f3c07534a9f604c947ff8559c41938718f4bf58ee1b225b4              125 Release
+ 554c00ad7579d58fe6abc827cfda86ef1b20c3c39c54c1a1af6a50780b3cbbd977b802001ea1c89f46ded00b51d97067fa09192aadd6b0b2b8a4998be40f91b3              516 main/binary-amd64/Packages
+ dc647765254fa021f01413338be9645584b8a79ffa03e4078addaa4fe6c5472516ddfff016501cc15978325f6ceb4b5306f770b6bf509716a7ae040223caa651              391 main/binary-amd64/Packages.gz
