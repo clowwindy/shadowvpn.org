@@ -16,9 +16,9 @@
   </head>
   <body>
     <div class="wrapper">
-      <header class="without-description">
+      <header>
         <h1>ShadowVPN</h1>
-        <p></p>
+        <p>A fast, safe VPN based on libsodium</p>
         <p class="view"><a href="https://github.com/clowwindy/shadowvpn.org">View the Project on GitHub <small>clowwindy/shadowvpn.org</small></a></p>
         <ul>
           <li><a href="https://github.com/clowwindy/shadowvpn.org/zipball/master">Download <strong>ZIP File</strong></a></li>
@@ -27,37 +27,167 @@
         </ul>
       </header>
       <section>
-        <h3>
-<a name="welcome-to-github-pages" class="anchor" href="#welcome-to-github-pages"><span class="octicon octicon-link"></span></a>Welcome to GitHub Pages.</h3>
+        <h1>
+<a name="shadowvpn" class="anchor" href="#shadowvpn"><span class="octicon octicon-link"></span></a>ShadowVPN</h1>
 
-<p>This automatic page generator is the easiest way to create beautiful pages for all of your projects. Author your page content here using GitHub Flavored Markdown, select a template crafted by a designer, and publish. After your page is generated, you can check out the new branch:</p>
+<p><a href="https://travis-ci.org/clowwindy/ShadowVPN"><img src="https://travis-ci.org/clowwindy/ShadowVPN.svg?branch=master" alt="Build Status"></a></p>
 
-<pre><code>$ cd your_repo_root/repo_name
-$ git fetch origin
-$ git checkout gh-pages
+<p><a href="https://github.com/clowwindy/ShadowVPN/wiki/ShadowVPN-%E4%BD%BF%E7%94%A8%E8%AF%B4%E6%98%8E">中文说明</a></p>
+
+<p>ShadowVPN is a fast, safe VPN based on libsodium. Designed for low end
+devices, i.e. OpenWRT routers.</p>
+
+<p>For more details, <a href="https://github.com/clowwindy/ShadowVPN/wiki/Compared-to-Shadowsocks-and-OpenVPN">check here</a>.</p>
+
+<h2>
+<a name="install" class="anchor" href="#install"><span class="octicon octicon-link"></span></a>Install</h2>
+
+<h4>
+<a name="unix" class="anchor" href="#unix"><span class="octicon octicon-link"></span></a>Unix</h4>
+
+<p>Currently Linux, FreeBSD and OS X are supported.
+Clone the repo and build. Make sure to set <code>--sysconfdir=/etc</code>.
+You'll find conf files under <code>/etc</code>.</p>
+
+<pre><code># For Debian-based Linux
+sudo apt-get install build-essential automake libtool
+git clone https://github.com/clowwindy/ShadowVPN.git
+git submodule update --init
+./autogen.sh
+./configure --enable-static --sysconfdir=/etc
+make &amp;&amp; sudo make install
 </code></pre>
 
-<p>If you're using the GitHub for Mac, simply sync your repository and you'll see the new branch.</p>
+<h4>
+<a name="debian--ubuntu" class="anchor" href="#debian--ubuntu"><span class="octicon octicon-link"></span></a>Debian &amp; Ubuntu</h4>
 
-<h3>
-<a name="designer-templates" class="anchor" href="#designer-templates"><span class="octicon octicon-link"></span></a>Designer Templates</h3>
+<p>Build package from source:</p>
 
-<p>We've crafted some handsome templates for you to use. Go ahead and continue to layouts to browse through them. You can easily go back to edit your page before publishing. After publishing your page, you can revisit the page generator and switch to another theme. Your Page content will be preserved if it remained markdown format.</p>
+<pre><code>sudo apt-get install build-essential automake libtool gawk debhelper
+git submodule update --init
+./autogen.sh
+dpkg-buildpackage
+cd ..
+sudo dpkg -i shadowvpn*.deb
+</code></pre>
 
-<h3>
-<a name="rather-drive-stick" class="anchor" href="#rather-drive-stick"><span class="octicon octicon-link"></span></a>Rather Drive Stick?</h3>
+<p>Enable service:</p>
 
-<p>If you prefer to not use the automatic generator, push a branch named <code>gh-pages</code> to your repository to create a page manually. In addition to supporting regular HTML content, GitHub Pages support Jekyll, a simple, blog aware static site generator written by our own Tom Preston-Werner. Jekyll makes it easy to create site-wide headers and footers without having to copy them across every page. It also offers intelligent blog support and other advanced templating features.</p>
+<pre><code># Edit /etc/default/shadowvpn. Change SERVICE default value
+SERVICE=yes
+# Start service
+sudo service shadowvpn start
+</code></pre>
 
-<h3>
-<a name="authors-and-contributors" class="anchor" href="#authors-and-contributors"><span class="octicon octicon-link"></span></a>Authors and Contributors</h3>
+<p>Note: service only supports server-side</p>
 
-<p>You can <a href="https://github.com/blog/821" class="user-mention">@mention</a> a GitHub username to generate a link to their profile. The resulting <code>&lt;a&gt;</code> element will link to the contributor's GitHub Profile. For example: In 2007, Chris Wanstrath (<a href="https://github.com/defunkt" class="user-mention">@defunkt</a>), PJ Hyett (<a href="https://github.com/pjhyett" class="user-mention">@pjhyett</a>), and Tom Preston-Werner (<a href="https://github.com/mojombo" class="user-mention">@mojombo</a>) founded GitHub.</p>
+<h4>
+<a name="openwrt" class="anchor" href="#openwrt"><span class="octicon octicon-link"></span></a>OpenWRT</h4>
 
-<h3>
-<a name="support-or-contact" class="anchor" href="#support-or-contact"><span class="octicon octicon-link"></span></a>Support or Contact</h3>
+<p><a href="https://github.com/clowwindy/ShadowVPN/releases">Download precompiled</a> for OpenWRT trunk and CPU: ar71xx, brcm63xx, brcm47xx,
+ramips_24kec.</p>
 
-<p>Having trouble with Pages? Check out the documentation at <a href="http://help.github.com/pages">http://help.github.com/pages</a> or contact <a href="mailto:support@github.com">support@github.com</a> and we’ll help you sort it out.</p>
+<p>Or build yourself: cd into <a href="http://wiki.openwrt.org/doc/howto/obtain.firmware.sdk">SDK</a> root, then</p>
+
+<pre><code>pushd package
+git clone https://github.com/clowwindy/ShadowVPN.git
+popd
+make menuconfig # select Network/ShadowVPN
+make V=s
+scp bin/xxx/ShadowVPN-xxx-xxx.ipk root@192.168.1.1
+# then log in your box and use opkg to install that ipk file
+</code></pre>
+
+<h4>
+<a name="windows" class="anchor" href="#windows"><span class="octicon octicon-link"></span></a>Windows</h4>
+
+<p>You need to install the TUN/TAP driver first:</p>
+
+<ul>
+<li><a href="http://build.openvpn.net/downloads/releases/tap-windows-9.9.2_3.exe">For 32-bit Windows</a></li>
+<li><a href="http://build.openvpn.net/downloads/releases/tap-windows-9.21.0.exe">For 64-bit Windows</a></li>
+</ul>
+
+<p>Currently only MinGW compilers are supported. You can compile in Msys or
+cross-compile in Linux or Cygwin with 32-bit or 64-bit MinGW toolchains.</p>
+
+<p>For example, if using 64-bit Cygwin, install <code>libtool</code>, <code>autoconf</code>, <code>git</code>
+and <code>mingw64-x86_64-gcc-g++</code> by Cygwin installer. Then build from Cygwin
+terminal by the following commands:</p>
+
+<pre><code>git clone --recursive https://github.com/clowwindy/ShadowVPN.git
+cd ShadowVPN
+./autogen.sh
+./configure --enable-static --host=x86_64-w64-mingw32
+make &amp;&amp; make install DESTDIR="$HOME/shadowvpn-build"
+</code></pre>
+
+<p>Executables will be generated in <code>$HOME/shadowvpn-build</code>.</p>
+
+<h2>
+<a name="configuration" class="anchor" href="#configuration"><span class="octicon octicon-link"></span></a>Configuration</h2>
+
+<ul>
+<li>You can find all the conf files under <code>/etc/shadowvpn</code>.</li>
+<li>For the client, edit <code>client.conf</code>.</li>
+<li>For the server, edit <code>server.conf</code>.</li>
+<li>Update <code>server</code> and <code>password</code> in those files.</li>
+<li>The script file specified by <code>up</code> will be executed after VPN is up.</li>
+<li>The script file specified by <code>down</code> will be executed after VPN is down.</li>
+<li>If you need to specify routing rules, modify those scripts. You'll see a
+placeholder at the end of those scripts.</li>
+<li>If you are using Windows, the IP address of TUN/TAP device <code>tunip</code> is
+required to be specified in the conf file.</li>
+</ul>
+
+<p>Notice ShadowVPN is a peer-to-peer VPN, which means you'll have one server
+for one client. If you have multiple clients, you should start multiple server
+instances, which can be controlled by different configuration files via <code>-c</code>
+argument. Make sure to use different IP for each instance in each <code>up</code> and
+<code>down</code> scripts.</p>
+
+<h2>
+<a name="usage" class="anchor" href="#usage"><span class="octicon octicon-link"></span></a>Usage</h2>
+
+<p>Server:</p>
+
+<pre><code>sudo shadowvpn -c /etc/shadowvpn/server.conf -s start
+sudo shadowvpn -c /etc/shadowvpn/server.conf -s stop
+</code></pre>
+
+<p>Client:</p>
+
+<pre><code>sudo shadowvpn -c /etc/shadowvpn/client.conf -s start
+sudo shadowvpn -c /etc/shadowvpn/client.conf -s stop
+</code></pre>
+
+<p>Client(OpenWRT):</p>
+
+<pre><code>/etc/init.d/shadowvpn start
+/etc/init.d/shadowvpn stop
+</code></pre>
+
+<p>You can also read <a href="https://github.com/clowwindy/ShadowVPN/wiki/Configure-Via-LuCI-on-OpenWRT">LuCI Configuration</a>.</p>
+
+<h2>
+<a name="wiki" class="anchor" href="#wiki"><span class="octicon octicon-link"></span></a>Wiki</h2>
+
+<p>You can find all the documentation in the wiki:
+<a href="https://github.com/clowwindy/ShadowVPN/wiki">https://github.com/clowwindy/ShadowVPN/wiki</a></p>
+
+<h2>
+<a name="license" class="anchor" href="#license"><span class="octicon octicon-link"></span></a>License</h2>
+
+<p>MIT</p>
+
+<h2>
+<a name="bugs-and-issues" class="anchor" href="#bugs-and-issues"><span class="octicon octicon-link"></span></a>Bugs and Issues</h2>
+
+<ul>
+<li><a href="https://github.com/clowwindy/ShadowVPN/wiki/FAQ">FAQ</a></li>
+<li><a href="https://github.com/clowwindy/ShadowVPN/issues?state=open">Issue Tracker</a></li>
+<li><a href="http://groups.google.com/group/shadowsocks">Mailing list</a></li>
+</ul>
       </section>
     </div>
     <footer>
