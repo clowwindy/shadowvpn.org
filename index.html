@@ -43,6 +43,23 @@ devices, i.e. OpenWRT routers.</p>
 <a name="install" class="anchor" href="#install"><span class="octicon octicon-link"></span></a>Install</h2>
 
 <h4>
+<a name="debian--ubuntu" class="anchor" href="#debian--ubuntu"><span class="octicon octicon-link"></span></a>Debian &amp; Ubuntu</h4>
+
+<p>For Debian 7 and Ubuntu 12+, add the following line to <code>/etc/apt/sources.list</code></p>
+
+<pre><code>deb http://shadowvpn.org/debian wheezy main
+</code></pre>
+
+<p>Then</p>
+
+<pre><code>apt-get update
+apt-get install shadowvpn
+service shadowvpn restart
+</code></pre>
+
+<p>Or see <a href="https://github.com/clowwindy/ShadowVPN/wiki/Building-deb-Package">Build deb Package</a>.</p>
+
+<h4>
 <a name="unix" class="anchor" href="#unix"><span class="octicon octicon-link"></span></a>Unix</h4>
 
 <p>Currently Linux, FreeBSD and OS X are supported.
@@ -57,29 +74,6 @@ git submodule update --init
 ./configure --enable-static --sysconfdir=/etc
 make &amp;&amp; sudo make install
 </code></pre>
-
-<h4>
-<a name="debian--ubuntu" class="anchor" href="#debian--ubuntu"><span class="octicon octicon-link"></span></a>Debian &amp; Ubuntu</h4>
-
-<p>Build package from source:</p>
-
-<pre><code>sudo apt-get install build-essential automake libtool gawk debhelper
-git submodule update --init
-./autogen.sh
-dpkg-buildpackage
-cd ..
-sudo dpkg -i shadowvpn*.deb
-</code></pre>
-
-<p>Enable service:</p>
-
-<pre><code># Edit /etc/default/shadowvpn. Change SERVICE default value
-SERVICE=yes
-# Start service
-sudo service shadowvpn start
-</code></pre>
-
-<p>Note: service only supports server-side</p>
 
 <h4>
 <a name="openwrt" class="anchor" href="#openwrt"><span class="octicon octicon-link"></span></a>OpenWRT</h4>
@@ -154,6 +148,8 @@ argument. Make sure to use different IP for each instance in each <code>up</code
 <pre><code>sudo shadowvpn -c /etc/shadowvpn/server.conf -s start
 sudo shadowvpn -c /etc/shadowvpn/server.conf -s stop
 </code></pre>
+
+<p>If you installed using apt-get, you can use <code>sudo service shadowvpn start</code> instead.</p>
 
 <p>Client:</p>
 
