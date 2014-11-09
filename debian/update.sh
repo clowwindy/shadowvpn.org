@@ -1,23 +1,27 @@
 #!/bin/bash
 
 PACKAGE=dists/wheezy/main
+ARCH="i386 amd64"
 
 # Build package info
-mkdir -p $PACKAGE/binary-amd64
-dpkg-scanpackages $PACKAGE/binary-amd64 /dev/null > $PACKAGE/binary-amd64/Packages
-dpkg-scanpackages $PACKAGE/binary-amd64 /dev/null | gzip -9c > $PACKAGE/binary-amd64/Packages.gz
+for arch in $ARCH; do
+	mkdir -p $PACKAGE/binary-$arch
+	dpkg-scanpackages $PACKAGE/binary-$arch /dev/null > $PACKAGE/binary-$arch/Packages
+	cat $PACKAGE/binary-$arch/Packages | gzip -9c > $PACKAGE/binary-$arch/Packages.gz
+done
 
 pushd dists/wheezy/
 
 # Create Release
-cat > Release <<EOM
-Origin: ShadowVPN
-Label: ShadowVPN
-Architectures: amd64
-Components: main
-Suite: wheezy
-Description: ShadowVPN APT Repository
+cat <<-EOM > Release
+	Origin: ShadowVPN
+	Label: ShadowVPN
+	Architectures: $ARCH
+	Components: main
+	Suite: wheezy
+	Description: ShadowVPN APT Repository
 EOM
+
 apt-ftparchive release . >> Release
 
 popd

@@ -1,23 +1,31 @@
 Origin: ShadowVPN
 Label: ShadowVPN
-Architectures: amd64
+Architectures: amd64 i386
 Components: main
 Suite: wheezy
 Description: ShadowVPN APT Repository
-Date: Sat, 18 Oct 2014 06:53:16 UTC
+Date: Sun, 09 Nov 2014 03:20:16 UTC
 MD5Sum:
- 6bf8023713e640d325c9ef485cb5fe7e              125 Release
+ 865ec296e45218344bdd16a137525806              130 Release
  3a7ac3d1e71c3ca05f8f4050273b0cfd              516 main/binary-amd64/Packages
- 7e82bfd52e0ee3f5c76a164d60ccf015              391 main/binary-amd64/Packages.gz
+ ed3b6ed2d86cc2dcc0449a350e7dabe7              391 main/binary-amd64/Packages.gz
+ cc043bdc5de5ada60db8c58687f3d967              513 main/binary-i386/Packages
+ 759a424e3e41a70cffd33ec1a7f8821b              391 main/binary-i386/Packages.gz
 SHA1:
- 82cfdb5bf44db0eae9c9bb6249625df1da1df1cc              125 Release
+ ba16e5aeaaa135b72997bc478a6719bcb8479da0              130 Release
  3c947ba53d58bcf7a654c4aef321e69ee6a56334              516 main/binary-amd64/Packages
- 0263eb7ff328b4ab7c7545b229af50144e15d4ef              391 main/binary-amd64/Packages.gz
+ e987faf5f2e334fa6ccedacc3fbe6d186747bec1              391 main/binary-amd64/Packages.gz
+ c909bcb39e5005fb8702a836216d89110626592e              513 main/binary-i386/Packages
+ 29e9a63f0f4b62d9049d1d8ece25554bd4599b02              391 main/binary-i386/Packages.gz
 SHA256:
- 9bb23aa5050ae40160e40df2fc22f43d3bf3be428a882c46cc8c6dd9a46b8dea              125 Release
+ a588be81b51313af5060b46218610b5e1fb0e22538d86fb4411708710b39da3b              130 Release
  a41cfbb9827f275f1cd3b3bfe13bba7e0bbc4896343d3a96e8b4d4aa26f8779c              516 main/binary-amd64/Packages
- 90ae3c5b3f8c382bf9a5a4ac69bed28f754bc820d043d888297ccbc76b05f294              391 main/binary-amd64/Packages.gz
+ b628f6dcd97c181a2cd2469b9ad36914a0e1bf2955e36fc8e991a7c3e7af60dd              391 main/binary-amd64/Packages.gz
+ a88e2f3d29ba993f2ba334c9e9d34c04637b89bef43194175f5cba4bbd24cf5f              513 main/binary-i386/Packages
+ 0bce5a8ae02bed9ea0e5a5208e4bd700d0a109edf8873aa02e59cb05104460ba              391 main/binary-i386/Packages.gz
 SHA512:
- d00e2b6fb8ca1223f8572a6f1bd14769f95f824ab8124eae00466edf8287f768c670a9cd79ffca49f3c07534a9f604c947ff8559c41938718f4bf58ee1b225b4              125 Release
+ 6f3c3bd1899f83b2e51ba61ede1c74ff17aa847314c8c888137d8f6b836692b43a81ebda1c82d08bd3b9543755e042b8744a42c593c7657a9ccc39b953a6d2b0              130 Release
  554c00ad7579d58fe6abc827cfda86ef1b20c3c39c54c1a1af6a50780b3cbbd977b802001ea1c89f46ded00b51d97067fa09192aadd6b0b2b8a4998be40f91b3              516 main/binary-amd64/Packages
- dc647765254fa021f01413338be9645584b8a79ffa03e4078addaa4fe6c5472516ddfff016501cc15978325f6ceb4b5306f770b6bf509716a7ae040223caa651              391 main/binary-amd64/Packages.gz
+ b2b990a9e48d221d54241748fcf5b95ad4418502d87750c732dc46412e2d80aeb94b86cd8e67fecc001bda0eba060af835eb196908056ea19a464a815fa13b6b              391 main/binary-amd64/Packages.gz
+ 42f3bfb0193f785c62090cdfbad0d6fa9dd54270d291fe54295ccd23cc94afb8e5d1d67ddf8e68570638e796cec702e3a4e08dd8112c4d99d4d04f48ad7e36ac              513 main/binary-i386/Packages
+ eb7fd353104e533a65786970dcdcf006f7fc155cfd91e847bdd6ef8e7e37b1feea579ef0482c42e9115b32d041337833d45fa853e511af622f82f940075d3a37              391 main/binary-i386/Packages.gz
