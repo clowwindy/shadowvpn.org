@@ -2,7 +2,7 @@ Format: 1.0
 Source: shadowvpn
 Binary: shadowvpn
 Architecture: any
-Version: 0.1.4-1
+Version: 0.1.5-1
 Maintainer: clowwindy <clowwindy42@gmail.com>
 Homepage: https://github.com/clowwindy/ShadowVPN
 Standards-Version: 3.9.3
@@ -12,8 +12,8 @@ Build-Depends: debhelper (>= 8.0.0), autotools-dev, mime-support, gawk
 Package-List: 
  shadowvpn deb net extra
 Checksums-Sha1: 
- e63e690573760f352c470ab7701538a142e1acd3 5680050 shadowvpn_0.1.4-1.tar.gz
+ 1bdd18ab3792e7f1c82b4353d51f4e2b4d7990d4 5695659 shadowvpn_0.1.5-1.tar.gz
 Checksums-Sha256: 
- a2075ce3daa58bef394b527fb3b33c9ed84ef3ea43a390845f94e0b252e68abd 5680050 shadowvpn_0.1.4-1.tar.gz
+ a9b54f3ab035d01387c2894b227f7255de399935a490983a18762def89e1e269 5695659 shadowvpn_0.1.5-1.tar.gz
 Files: 
- 46eee9cacbd954bf209953ce21b5120f 5680050 shadowvpn_0.1.4-1.tar.gz
+ a3ac1758520acbc71ffc86c7c02a9c7f 5695659 shadowvpn_0.1.5-1.tar.gz
