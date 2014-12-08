@@ -4,6 +4,11 @@ CD=$(pwd)
 CH=/home/chroot/wheezy
 TAG=$1
 
+if [ `id -u` -ne 0 ]; then
+	echo "The script requires root privileges."
+	exit 2
+fi
+
 rm -rf $CD/dists/wheezy/main/binary-amd64 $CD/dists/wheezy/main/binary-i386
 cd /tmp
 rm -rf ShadowVPN
