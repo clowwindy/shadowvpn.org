@@ -1,14 +1,14 @@
 Package: shadowvpn
-Version: 0.1.6-1
+Version: 0.1.7-1
 Architecture: i386
 Maintainer: clowwindy <clowwindy42@gmail.com>
-Installed-Size: 171
-Depends: libc6 (>= 2.4)
-Filename: dists/wheezy/main/binary-i386/shadowvpn_0.1.6-1_i386.deb
-Size: 43224
-MD5sum: 04768c83e4ebafd54f969dca23c41481
-SHA1: dc5cffb5db4b597bc544e93fa755f81c6983cdc1
-SHA256: a923cba7c5f97a1bbdc81c26632459ce7bbae25439d76a8492834400cb497204
+Installed-Size: 170
+Depends: libc6 (>= 2.4), iproute, iptables
+Filename: dists/wheezy/main/binary-i386/shadowvpn_0.1.7-1_i386.deb
+Size: 42764
+MD5sum: a3e051ba6b04176651132e9ad49d4334
+SHA1: d433905c91ef66ea7545f81b393f32b562c5d480
+SHA256: 8db923ca7f65ca7bf7f04faf4ed0d408fa9f2b4393f36979f30524f5d7abca3a
 Section: net
 Priority: extra
 Homepage: https://github.com/clowwindy/ShadowVPN
