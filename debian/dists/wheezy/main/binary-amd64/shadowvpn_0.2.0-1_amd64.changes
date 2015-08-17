@@ -1,0 +1,28 @@
+Format: 1.8
+Date: Mon, 17 Aug 2015 09:51:30 +0800
+Source: shadowvpn
+Binary: shadowvpn
+Architecture: source amd64
+Version: 0.2.0-1
+Distribution: unstable
+Urgency: low
+Maintainer: clowwindy <clowwindy42@gmail.com>
+Changed-By: clowwindy <clowwindy42@gmail.com>
+Description:
+ shadowvpn  - A fast, safe VPN based on libsodium
+Changes:
+ shadowvpn (0.2.0-1) unstable; urgency=low
+ .
+   * Add NAT support on server side
+Checksums-Sha1:
+ 77b3f2093f40e3d7aa8da1f3730fc18d8f73617e 706 shadowvpn_0.2.0-1.dsc
+ c2f9a9949f8b571bd4dca8e326d30654dc7b28d6 6350124 shadowvpn_0.2.0-1.tar.gz
+ 6e505711c0ee17a69ec3bacb7d1336591faa7e42 35452 shadowvpn_0.2.0-1_amd64.deb
+Checksums-Sha256:
+ 55fd24d04e57d88add04a50224989648ba3a399bdd8841f4dabdd78465182e10 706 shadowvpn_0.2.0-1.dsc
+ b166d10b0620067c8829edcea2ff01e4f07fec196498fbfee42de2c7faf77f29 6350124 shadowvpn_0.2.0-1.tar.gz
+ eb1646307db3359813a2f9628668818fa8023ccaefcbbb209c36b6aedbe72ce1 35452 shadowvpn_0.2.0-1_amd64.deb
+Files:
+ f10a2f009474755204f438ea21e8b028 706 net extra shadowvpn_0.2.0-1.dsc
+ eb985bd9e66826f29b8f4caee7a11800 6350124 net extra shadowvpn_0.2.0-1.tar.gz
+ 9447d2ae0ecc8f09d45e37a1d62a4445 35452 net extra shadowvpn_0.2.0-1_amd64.deb
